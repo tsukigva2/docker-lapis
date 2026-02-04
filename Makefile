@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-IMAGE := mileschou/lapis
+IMAGE := tortea/lapis
 .PHONY: alpine debian
 
 # ------------------------------------------------------------------------------
@@ -8,7 +8,7 @@ IMAGE := mileschou/lapis
 all: alpine debian
 
 alpine:
-	docker build -t=$(IMAGE):alpine -f alpine/Dockerfile .
+	podman build -t=$(IMAGE):alpine -f alpine/Dockerfile .
 
 debian:
-	docker build -t=$(IMAGE):latest -f Dockerfile .
+	podman build -t=$(IMAGE):latest -f Dockerfile .

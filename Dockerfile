@@ -1,9 +1,5 @@
 FROM debian:buster-slim
 
-LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-lapis" \
-    repository="https://github.com/MilesChou/docker-lapis" \
-    maintainer="MilesChou <github.com/MilesChou>"
-
 # Ref https://github.com/openresty/docker-openresty/blob/master/alpine/Dockerfile
 ARG OPENRESTY_CONFIG_OPTIONS="\
     --with-http_auth_request_module \
@@ -21,10 +17,10 @@ ARG OPENRESTY_CONFIG_OPTIONS="\
     "
 
 # Set environment
-ENV OPENRESTY_VERSION=1.15.8.3 \
+ENV OPENRESTY_VERSION=1.21.4.4 \
     OPENRESTY_PREFIX=/usr/local/openresty \
-    LUAROCKS_VERSION=3.3.1 \
-    LAPIS_VERSION=1.8.1
+    LUAROCKS_VERSION=3.13.0 \
+    LAPIS_VERSION=1.17.0
 ENV PATH=${OPENRESTY_PREFIX}/bin:${OPENRESTY_PREFIX}/nginx/sbin:${PATH}
 
 # Set Persistent Deps

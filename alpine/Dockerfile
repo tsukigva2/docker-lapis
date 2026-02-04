@@ -21,10 +21,10 @@ ARG OPENRESTY_CONFIG_OPTIONS="\
     "
 
 # Set environment
-ENV OPENRESTY_VERSION=1.15.8.3 \
+ENV OPENRESTY_VERSION=1.21.4.4 \
     OPENRESTY_PREFIX=/usr/local/openresty \
-    LUAROCKS_VERSION=3.3.1 \
-    LAPIS_VERSION=1.8.1
+    LUAROCKS_VERSION=3.13.0 \
+    LAPIS_VERSION=1.17.0
 ENV PATH=${OPENRESTY_PREFIX}/bin:${OPENRESTY_PREFIX}/nginx/sbin:${PATH}
 
 RUN set -xe && \
@@ -79,8 +79,5 @@ RUN set -xe && \
         docker-luarocks-install lapis ${LAPIS_VERSION} && \
         docker-luarocks-install moonscript && \
         # Remove build deps
-        apk del .build-deps && \
-        # Test
-        lapis -v
+        apk del .build-deps
 
-CMD ["lapis", "-v"]
